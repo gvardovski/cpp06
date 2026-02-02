@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   A.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svolkau <gvardovski@icloud.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/01 13:49:55 by svolkau           #+#    #+#             */
-/*   Updated: 2026/02/02 13:57:10 by svolkau          ###   ########.fr       */
+/*   Created: 2026/02/02 14:54:11 by svolkau           #+#    #+#             */
+/*   Updated: 2026/02/02 14:54:23 by svolkau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/ScalarConverter.hpp"
+#ifndef A_CLASS_HPP
+#define A_CLASS_HPP
 
-int main(int gc, char **gv)
+#include "Base.hpp"
+
+class A : public Base
 {
-	if (gc != 2)
-	{
-		std::cerr<<"Error: wrong number of arguments"<<std::endl;
-		return 1;
-	}
-	std::string inputStr = static_cast<std::string>(gv[1]);
-	if (inputStr.empty())
-	{
-		std::cerr<<"Erorr: empty argument"<<std::endl;
-		return 1;
-	}
-	ScalarConverter::convert(inputStr);
-	return 0;
-}
+};
+
+#endif

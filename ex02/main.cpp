@@ -5,26 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: svolkau <gvardovski@icloud.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/01 13:49:55 by svolkau           #+#    #+#             */
-/*   Updated: 2026/02/02 13:57:10 by svolkau          ###   ########.fr       */
+/*   Created: 2026/02/02 14:37:05 by svolkau           #+#    #+#             */
+/*   Updated: 2026/02/02 15:10:20 by svolkau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/ScalarConverter.hpp"
+#include "inc/Base.hpp"
+#include "inc/A.hpp"
+#include "inc/B.hpp"
+#include "inc/C.hpp"
 
-int main(int gc, char **gv)
+int main()
 {
-	if (gc != 2)
+	for (int i = 0; i < 10; ++i)
 	{
-		std::cerr<<"Error: wrong number of arguments"<<std::endl;
-		return 1;
+		Base *obj = generate();
+		identify(obj);
+		identify(*obj);
+		delete obj;
 	}
-	std::string inputStr = static_cast<std::string>(gv[1]);
-	if (inputStr.empty())
-	{
-		std::cerr<<"Erorr: empty argument"<<std::endl;
-		return 1;
-	}
-	ScalarConverter::convert(inputStr);
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: svolkau <gvardovski@icloud.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 19:54:05 by svolkau           #+#    #+#             */
-/*   Updated: 2026/02/01 20:50:51 by svolkau          ###   ########.fr       */
+/*   Updated: 2026/02/02 13:54:47 by svolkau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void convertInt(std::string &literal)
 void convertFloat(std::string &literal)
 {
 	float val = atof(literal.c_str());
-	bool tolerance = fabs(val - static_cast<int>(val)) < 0.0000000000001;
+	bool presizion = fabs(val - static_cast<int>(val)) < 0.0000000000001;
 	std::cout<<"char: ";
 	if (val < 0 || val > 127)
 		std::cout<<"impossible"<<std::endl;
@@ -82,24 +82,23 @@ void convertFloat(std::string &literal)
 		std::cout<<"'"<<static_cast<char>(val)<<"'"<<std::endl;
 	else
 		std::cout<<"Non displayable"<<std::endl;
-	long vall = static_cast<long>(val);
 	std::cout<<"int: ";
-	if (vall < std::numeric_limits<int>::min() || vall > std::numeric_limits<int>::max())
+	if (val < std::numeric_limits<int>::min() || val > std::numeric_limits<int>::max())
 		std::cout<<"impossible"<<std::endl;
 	else
 		std::cout<<static_cast<int>(val)<<std::endl;
 	std::cout<<"float: ";
 	if (val < std::numeric_limits<float>::min() || val > std::numeric_limits<float>::max())
-		std::cout<<"impossible"<<std::endl;
+		std::cout<<val<<"f"<<std::endl;
 	else
-		std::cout << val << (tolerance ? ".0f" : "f") << std::endl;
-	std::cout<<"double: "<<static_cast<double>(val)<<(tolerance ? ".0" : "")<<std::endl;
+		std::cout << val << (presizion ? ".0f" : "f") << std::endl;
+	std::cout<<"double: "<<static_cast<double>(val)<<(presizion ? ".0" : "")<<std::endl;
 }
 
 void convertDouble(std::string &literal)
 {
 	double val = atof(literal.c_str());
-	bool tolerance = fabs(val - static_cast<int>(val)) < 0.0000000000001;
+	bool presizion = fabs(val - static_cast<int>(val)) < 0.0000000000001;
 	std::cout<<"char: ";
 	if (val < 0 || val > 127)
 		std::cout<<"impossible"<<std::endl;
@@ -107,20 +106,19 @@ void convertDouble(std::string &literal)
 		std::cout<<"'"<<static_cast<char>(val)<<"'"<<std::endl;
 	else
 		std::cout<<"Non displayable"<<std::endl;
-	long vall = static_cast<long>(val);
 	std::cout<<"int: ";
-	if (vall < std::numeric_limits<int>::min() || vall > std::numeric_limits<int>::max())
+	if (val < std::numeric_limits<int>::min() || val > std::numeric_limits<int>::max())
 		std::cout<<"impossible"<<std::endl;
 	else
 		std::cout<<static_cast<int>(val)<<std::endl;
 	std::cout<<"float: ";
 	if (val < std::numeric_limits<float>::min() || val > std::numeric_limits<float>::max())
-		std::cout<<"impossible"<<std::endl;
+		std::cout<<val<<"f"<<std::endl;
 	else
-		std::cout << val << (tolerance ? ".0f" : "f") << std::endl;
+		std::cout << val << (presizion ? ".0f" : "f") << std::endl;
 	std::cout<<"double: ";
 	if (val < std::numeric_limits<double>::min() || val > std::numeric_limits<double>::max())
-		std::cout<<"impossible"<<std::endl;
+		std::cout<< val <<std::endl;
 	else
 		std::cout << val << std::endl;
 }

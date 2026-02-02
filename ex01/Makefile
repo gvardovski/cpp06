@@ -1,10 +1,8 @@
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g
-NAME = ScalarConverter
+NAME = Serializer
 SRC =  main.cpp \
-	src/Convert.cpp \
-	src/ScalarConverter.cpp
-	src/TypeDetect.cpp
+	src/Serializer.cpp
 OBJ = $(SRC:.cpp=.o)
 %.o: %.cpp
 	$(CC) $(CPPFLAGS) -c $< -o $@

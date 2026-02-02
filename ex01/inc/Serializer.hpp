@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svolkau <gvardovski@icloud.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/01 13:49:55 by svolkau           #+#    #+#             */
-/*   Updated: 2026/02/02 13:57:10 by svolkau          ###   ########.fr       */
+/*   Created: 2026/02/02 14:01:19 by svolkau           #+#    #+#             */
+/*   Updated: 2026/02/02 14:18:53 by svolkau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/ScalarConverter.hpp"
+#ifndef SERIALIZER_CLASS_CPP
+#define SERIALIZER_CLASS_CPP
 
-int main(int gc, char **gv)
+#include <iostream>
+#include <stdint.h>
+
+struct Data
 {
-	if (gc != 2)
-	{
-		std::cerr<<"Error: wrong number of arguments"<<std::endl;
-		return 1;
-	}
-	std::string inputStr = static_cast<std::string>(gv[1]);
-	if (inputStr.empty())
-	{
-		std::cerr<<"Erorr: empty argument"<<std::endl;
-		return 1;
-	}
-	ScalarConverter::convert(inputStr);
-	return 0;
-}
+	int         n;
+	std::string str;
+};
+
+class Serializer
+{
+	private:
+		Serializer();
+		Serializer(Serializer const &other);
+		Serializer &operator=(Serializer const &other);
+		~Serializer();
+
+	public:
+		static uintptr_t serialize(Data *ptr);
+		static Data *deserialize(uintptr_t raw);
+};
+
+#endif
