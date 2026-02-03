@@ -3,8 +3,8 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 NAME = ScalarConverter
 SRC =  main.cpp \
 	src/Convert.cpp \
-	src/ScalarConverter.cpp
-	src/TypeDetect.cpp
+	src/ScalarConverter.cpp \
+	src/TypeUtils.cpp
 OBJ = $(SRC:.cpp=.o)
 %.o: %.cpp
 	$(CC) $(CPPFLAGS) -c $< -o $@
