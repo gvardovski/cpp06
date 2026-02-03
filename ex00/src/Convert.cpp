@@ -113,9 +113,9 @@ void convertDouble(std::string &literal)
 		std::cout<<static_cast<int>(val)<<std::endl;
 	std::cout<<"float: ";
 	if (val < std::numeric_limits<float>::min() || val > std::numeric_limits<float>::max())
-		std::cout<<val<<"f"<<std::endl;
+		std::cout<<static_cast<float>(val)<<"f"<<std::endl;
 	else
-		std::cout << val << (presizion ? ".0f" : "f") << std::endl;
+		std::cout <<static_cast<float>(val)<< (presizion ? ".0f" : "f") << std::endl;
 	std::cout<<"double: ";
 	if (val < std::numeric_limits<double>::min() || val > std::numeric_limits<double>::max())
 		std::cout<< val <<std::endl;
